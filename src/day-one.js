@@ -5,8 +5,8 @@ var numberOfTimesDepthIncreases = 0;
 var lastOceanDepth = NaN;
 function findTheNumberOfTimesTheOceanDepthIncreases() {
     var fileInput = fs.readFile("input.txt", function (err, data) {
-        var arr = data.toString().replace(/\r\n/g, '\n').split('\n');
-        arr.forEach(function (oceanDepth) {
+        var oceanDepthReadings = data.toString().replace(/\r\n/g, '\n').split('\n');
+        oceanDepthReadings.forEach(function (oceanDepth) {
             var currentOceanDepth = parseInt(oceanDepth);
             if (Number.isNaN(lastOceanDepth)) {
                 lastOceanDepth = parseInt(oceanDepth);
@@ -18,7 +18,7 @@ function findTheNumberOfTimesTheOceanDepthIncreases() {
                 lastOceanDepth = currentOceanDepth;
             }
         });
-        console.log("\nNumber of times size increases is ".concat(numberOfTimesDepthIncreases));
+        console.log("Number of times size increases is ".concat(numberOfTimesDepthIncreases));
         process.exit(0);
     });
 }
