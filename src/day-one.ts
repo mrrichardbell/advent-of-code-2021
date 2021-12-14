@@ -33,9 +33,4 @@ function removeStartingOceanDepth(oceanDepthReadings: string[]) {
     oceanDepthReadings.splice(0, 1);
 }
 
-
-
 doSonarSweep();
-
-
-
