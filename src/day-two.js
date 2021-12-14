@@ -4,6 +4,7 @@ var fs = require("fs");
 function driveSub() {
     var horizontalPosition = 0;
     var verticalPosition = 0;
+    var aimTheDamnGun = 0;
     fs.readFile("day-two-input.txt", function (err, data) {
         var commandsFromTheCaptain = data.toString().replace(/\r\n/g, '\n').split('\n').slice();
         commandsFromTheCaptain.forEach(function (command) {
@@ -11,14 +12,15 @@ function driveSub() {
             switch (commandAsInstructions[0]) {
                 case "forward": {
                     horizontalPosition += parseInt(commandAsInstructions[1]);
+                    verticalPosition += aimTheDamnGun * parseInt(commandAsInstructions[1]);
                     break;
                 }
                 case "down": {
-                    verticalPosition += parseInt(commandAsInstructions[1]);
+                    aimTheDamnGun += parseInt(commandAsInstructions[1]);
                     break;
                 }
                 case "up": {
-                    verticalPosition -= parseInt(commandAsInstructions[1]);
+                    aimTheDamnGun -= parseInt(commandAsInstructions[1]);
                     break;
                 }
             }
